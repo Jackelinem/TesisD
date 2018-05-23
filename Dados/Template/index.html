@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Hielo </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/mainLogin.css" />
+		<link rel="stylesheet" href="assets/css/util.css" />
+
+		<!--===============================================================================================-->
+	</head>
+
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html"> <span></span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a onclick="document.getElementById('modal-wrapper').style.display='block'" >Login</a></li>
+					<li><a onclick="document.getElementById('modal-register').style.display='block'">Register</a></li>
+				</ul>
+			</nav>
+
+
+		<!-- Banner -->
+			<section class="banner full">
+				
+				<article>
+					<img src="images/slide01.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p> </p>
+							<h2> </h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide02.jpg" alt="" />
+					<div class="inner">
+						<header>
+							
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide03.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide04.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide05.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							
+						</header>
+					</div>
+				</article>
+			</section>
+
+	<!-- popup login -->
+<div id="modal-wrapper" class="modal">
+  		 
+  		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100">
+				<span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+
+
+				<form class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="username" placeholder="Enter username">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+				
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  
+ </div>
+	
+</div>
+
+<!--popup register-->
+
+<div id="modal-register" class="modal">
+  		 
+  		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100">
+				<span onclick="document.getElementById('modal-register').style.display='none'" class="close" title="Close PopUp">&times;</span>
+
+
+				<form class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
+						<span class="label-input100"> Nombre</span>
+						<input class="input100" type="text" name="username" placeholder="Enter username">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
+						<span class="label-input100">apellido</span>
+						<input class="input100" type="text" name="username" placeholder="apellido">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
+						<span class="label-input100"> edad </span>
+						<input class="input100" type="text" name="username" placeholder="Enter username">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
+						<span class="label-input100"> genero </span>
+						<input class="input100" type="text" name="username" placeholder="genero">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
+						<span class="label-input100">email</span>
+						<input class="input100" type="text" name="username" placeholder="apellido">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Pass</span>
+						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Pass confirm</span>
+						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Registrar
+						</button>
+				
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  
+ </div>
+	
+</div>
+
+
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container"  >
+					
+					<header class="align-center">
+						<p class="special"> jk</p>	
+					</header>
+					
+		&copy; Untitled. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+<!--===============================================================================================-->
+
+	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+	<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/js/mainLogin.js"></script>
+
+<script>
+// If user clicks anywhere outside of the modal, Modal will close
+
+var modal = document.getElementById('modal-wrapper');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<script>
+var modal = document.getElementById('modal-register');
+document.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+	</body>
+</html>
