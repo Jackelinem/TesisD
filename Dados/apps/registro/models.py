@@ -5,9 +5,9 @@ from django.db import models
 class Profesor(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    edad = models.IntegerField()
+    edad = models.CharField(max_length=50)
     genero = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
+    email = models.CharField(max_length=50)
     contrasenia = models.CharField(max_length=50)
     confirmpass = models.CharField(max_length=50)
 

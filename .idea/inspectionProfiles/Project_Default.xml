@@ -6,6 +6,7 @@
         <list>
           <option value="Dados.apps.registro.urls.*" />
           <option value="Dados.Dados.urls.apps" />
+          <option value="Dados.apps.registro.forms.registro" />
         </list>
       </option>
     </inspection_tool>

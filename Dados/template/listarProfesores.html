@@ -1,0 +1,44 @@
+<Html>
+
+
+<head> Lista Profesores</head>
+
+
+<body>
+
+<table class=" table table-bordered"
+       <thead>
+       <tr>
+           <td>nombre</td>
+           <td>apellido</td>
+           <td>edad</td>
+           <td>genero</td>
+           <td>email</td>
+
+       </tr>
+
+       </thead>
+
+<tbody>
+    {% if profesores %}
+    {% for profesor in profesores %}
+    <tr>
+
+         <td>{{ profesor.nombre }}</td>
+         <td>{{ profesor.apellido }}</td>
+         <td>{{ profesor.edad }}</td>
+         <td>{{ profesor.genero }}</td>
+         <td>{{ profesor.email }}</td>
+
+
+
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>  no hay egistros</h1>
+    {% endif %}
+</tbody>
+
+</body>
+
+</Html>
