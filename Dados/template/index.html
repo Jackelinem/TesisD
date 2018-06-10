@@ -1,5 +1,4 @@
 {% load staticfiles %}
-
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
@@ -26,7 +25,10 @@
 				<ul class="links">
 					<li><a href="test.html">Home</a></li>
 					<li><a onclick="document.getElementById('modal-wrapper').style.display='block'" >Login</a></li>
-					<li><a onclick="document.getElementById('modal-register').style.display='block'">Register</a></li>
+					<!-- Nav <li><a onclick="document.getElementById('modal-register').style.display='block'">Register</a></li> -->
+
+					<li><a href="registro.html">Registro </a></li>
+
 				</ul>
 			</nav>
 
@@ -133,74 +135,7 @@
 <!--popup register-->
 
 
-<div id="modal-register" class="modal">
-  		 
-  		<div class="limiter">
-			<div class="container-login100">
-				<div class="wrap-login100">
-				<span onclick="document.getElementById('modal-register').style.display='none'" class="close" title="Close PopUp">&times;</span>
 
-
-				<form   method="POST" class="login100-form validate-form">
-						{% csrf_token %}
-							{{form.as_p}}
-					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
-						<span class="label-input100"> Nombre</span>
-						<input class="input100" type="text" name="username" placeholder="Enter username">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
-						<span class="label-input100">apellido</span>
-						<input class="input100" type="text" name="username" placeholder="apellido">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
-						<span class="label-input100"> edad </span>
-						<input class="input100" type="text" name="username" placeholder="Enter username">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
-						<span class="label-input100"> genero </span>
-						<input class="input100" type="text" name="username" placeholder="genero">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-26" data-validate="name">
-						<span class="label-input100">email</span>
-						<input class="input100" type="text" name="username" placeholder="apellido">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Pass</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Pass confirm</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="flex-sb-m w-full p-b-30">
-						
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button  type="submit" class="login100-form-btn" >
-							Registrar
-						</button>
-				
-
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
   
  </div>
 
