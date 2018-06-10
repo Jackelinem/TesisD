@@ -10,11 +10,9 @@ from .views import index, registrarProfesor, login, listarProfesores, profesorEd
 app_name = 'registro'
 
 urlpatterns = [
-    path('home',index, name='index'),
+    path('',index, name='index'),
     path('registrar',registrarProfesor, name='registrar'),
     path('listar', listarProfesores, name='listarProfesor'),
-
-    path(r'^editar/(?P<id\>\d+)/$', profesorEditar, name='editarProfesor'),
 
     path('login',login, name='login'),
 
