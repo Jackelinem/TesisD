@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .forms import  ProfesorForm
-from  .models import Profesor
+from django.http import HttpResponseRedirect
+from .forms import ProfesorForm
+from .models import Profesor
+from django.views.generic import ListView, CreateView, UpdateView
+from django.urls import reverse_lazy, reverse
+
 
 # Create your views here.
-def index(request):
-    return render(request,'index.html')
+def home(request):
+    return render(request, 'home.html')
 
 def registrarProfesor(request):
     if request.method == 'POST':
@@ -13,29 +16,43 @@ def registrarProfesor(request):
         if form.is_valid():
             form.save()
             print("save")
-        return redirect('registro:index')
+        return HttpResponseRedirect(reverse('registro:index'))
     else:
         form = ProfesorForm()
-    return render(request,'test.html',{'formProfesor':ProfesorForm})
+    return render(request, 'register.html', {'formProfesor': ProfesorForm})
+
 
 def listarProfesores(request):
-    profesor= Profesor.objects.all()
-    contexto ={'profesores': profesor}
-    return render (request,'listarProfesores.html',contexto)
+    profesor = Profesor.objects.all()
+    contexto = {'profesores': profesor}
+    return render(request, 'listarProfesores.html', contexto)
 
 
 def profesorEditar(request, id):
     profesor = Profesor.objects.get(id=id)
-    if request.method=='GET':
+    if request.method == 'GET':
         form = ProfesorForm(instance=profesor)
     else:
         form = ProfesorForm(request.POST, instance=profesor)
         if form.is_valid():
             form.save()
         return redirect('registro:listarProfesor')
-    return render(request, 'test.html',{'formProfesor': form})
+    return render(request, 'test.html', {'formProfesor': form})
 
 
+class ProfesoresList(ListView):
+    model = Profesor
+    template_name = 'listarProfesores.html'
 
-def login(request):
-    return render(request,'login' )
+
+class ProfesorCreate(CreateView):
+    model = Profesor
+    form_class = ProfesorForm
+    template_name = 'test.html'
+    success_url = reverse_lazy('listProfesores')
+
+
+class ProfesorUpdate(UpdateView):
+    model = Profesor
+    template_name = 'test.html'
+    success_url = reverse_lazy('listProfesores')

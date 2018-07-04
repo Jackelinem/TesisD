@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+<title> Registro </title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Event Registration" />
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<link href="{% static 'web/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="{% static 'web/js/jquery-2.1.4.min.js' %}"></script>
+
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<!-- banner -->
+	<div class="center-container">
+		<div class="main">
+			<h1 class="w3layouts_head">Registration Form</h1>
+				<div class="w3layouts_main_grid">
+					<form method="POST"  class="w3_form_post">{% csrf_token %}
+
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label> Nombre: </label>
+								<input  type="text" name="firts_name" placeholder="Nombre" required="true" >
+
+							</span>
+						</div>
+
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Apellido: </label>
+								<input type="text" name="last_name" placeholder="Apellido" required="true" >
+							</span>
+						</div>
+
+                        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Genero: </label>
+								<input type="text" name="gender" placeholder="Genero" required="">
+							</span>
+						</div>
+
+                        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Fecha de nacimiento: </label>
+								<input type="text" name="birthday" placeholder="dd/mm/yyyy" required="true">
+							</span>
+						</div>
+
+                        	<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Email </label>
+								<input type="text" name="email" placeholder="Your Email" required="true">
+							</span>
+						</div>
+
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label> Contrasenia: </label>
+								<input type="password" name="password1" placeholder="password" required="true">
+							</span>
+						</div>
+
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>  Comfirmar Contrasenia:</label>
+								<input type="password" name="password2" placeholder="password confirm" required="true">
+							</span>
+						</div>
+
+
+
+						<div class="agileits_w3layouts_main_grid w3ls_main_grid">
+							<span class="agileinfo_grid">
+								<label>Edad</label>
+								<div class="agileits_w3layouts_main_gridl">
+									<input class="date" id="datepicker" name="birthday " type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="" {{ formProfesor.edad }}>
+								</div>
+
+									<div class="clear"> </div>
+							</span>
+						</div>
+
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label> Genero </label>
+								<select name="country">
+									<option value="none" selected="" disabled="" {{ formProfesor.genero }}>Select </option>
+									<option value="Ph">masculino</option>
+									<option value="Po">femenino</option>
+
+								</select>
+							</span>
+						</div>
+
+
+
+
+
+
+					<div class="w3_main_grid">
+						<div class="w3_main_grid_right">
+							  <button  type="submit"> Registrar  </button>
+						</div>
+					</div>
+				</form>
+			</div>
+		<!-- Calendar -->
+			<link rel="stylesheet" href="{% static 'web/css/jquery-ui.css' %}" />
+				<script src="{% static 'web/js/jquery-ui.js' %}"></script>
+					<script>
+						$(function() {
+							$( "#datepicker" ).datepicker();
+						});
+					</script>
+		<!-- //Calendar -->
+			<div class="w3layouts_copy_right">
+				<div class="container">
+					<p>© 2018  Registration Form. All rights reserved | Design by JK </p>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+</body>
+</html>

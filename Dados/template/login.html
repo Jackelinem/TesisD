@@ -1,0 +1,142 @@
+{% load staticfiles %}
+
+<html lang="zxx">
+
+<head>
+    <title>Login</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="C">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="{% static '/assets/web/css/style.css' %}" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <link href="{% static '/assets/web/fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400,500,600,700,800' %}" rel="stylesheet">
+    <!-- //fonts -->
+    <!-- Font-Awesome-File -->
+    <link rel="stylesheet" href="{% static '/assets/web/css/font-awesome.css' %}" type="text/css" media="all">
+</head>
+
+<body>
+
+
+
+
+ <h1 class="title-agile text-center">Iniciar Session </h1>
+    <div class="content-w3ls">
+        <div class="agileits-grid">
+
+            <div class="content-bottom">
+
+                <form  method="post">{% csrf_token %}
+
+                    <div class="field_w3ls">
+                        <div class="field-group">
+                            <input name="username" id="text1" type="text" value="" placeholder="Email" required>
+                        </div>
+
+                    </div>
+
+                    <div class="field_w3ls">
+
+                        <div class="field-group">
+                            <input id="password-field" name="password" type="password" class="form-control"  value="" placeholder="Password">
+                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                    </div>
+
+                    <div class="wthree-field">
+                        <input id="saveForm" name="saveForm" type="submit" value="Iniciar Session" />
+                    </div>
+
+
+                    <div class="field-group">
+                        <ul class="list-login">
+
+                            <li class="switch-agileits">
+                                <a href="{% url 'users:register' %}" class="text-left"> Registrarse </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-right"> Olvide mi comtrasenia </a>
+                            </li>
+
+                        <li class="clearfix"></li>
+                    </ul>
+
+                      </div>
+
+
+
+
+
+                </form>
+            </div>
+            <!-- //content bottom -->
+        </div>
+    </div>
+    <div class="copyright text-center">
+        <p>© 2018 Login Form. All rights reserved | Design by JK
+
+        </p>
+    </div>
+
+    <!--//copyright-->
+    <script src="{% static '/assets/web/js/jquery-2.2.3.min.js' %}"></script>
+    <!-- script for show password -->
+    <script>
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+    <!-- /script for show password -->
+
+</body>
+<!-- //Body -->
+<!-- Footer -->
+
+
+
+		<!-- Scripts -->
+			<script src=" {% static 'assets/js/jquery.min.js' %}"></script>
+			<script src=" {% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src=" {% static 'assets/js/skel.min.js' %}"></script>
+			<script src=" {% static 'assets/js/util.js' %}"></script>
+			<script src=" {% static 'assets/js/main.js' %}"></script>
+
+<!--===============================================================================================-->
+
+	<script src="{% static 'assets/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/js/mainLogin.js' %}"></script>
+
+</html>

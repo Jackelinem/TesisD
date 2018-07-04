@@ -1,5 +1,4 @@
 {% load staticfiles %}
-<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<title>Hielo </title>
@@ -13,21 +12,21 @@
 	</head>
 
 	<body>
-
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="logo"><a href="test.html"> <span></span></a></div>
 				<a href="#menu">Menu</a>
 			</header>
 
-		<!-- Nav -->
+		<!-- Nav
+
+					<li><a onclick="document.getElementById('modal-wrapper').style.display='block'" >Login</a></li>
+		-->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="test.html">Home</a></li>
-					<li><a onclick="document.getElementById('modal-wrapper').style.display='block'" >Login</a></li>
-					<!-- Nav <li><a onclick="document.getElementById('modal-register').style.display='block'">Register</a></li> -->
-
-					<li><a href="registro.html">Registro </a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="{% url 'users:login' %}">Iniciar Session </a></li>
+					<li><a href="{% url 'users:register' %}">Registro </a></li>
 
 				</ul>
 			</nav>
@@ -79,71 +78,6 @@
 				</article>
 			</section>
 
-	<!-- popup login -->
-<div id="modal-wrapper" class="modal">
-  		 
-  		<div class="limiter">
-			<div class="container-login100">
-				<div class="wrap-login100">
-				<span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-
-
-				<form class="login100-form validate-form">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Enter username">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="flex-sb-m w-full p-b-30">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-				
-
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-  
- </div>
-	
-</div>
-
-<!--popup register-->
-
-
-
-  
- </div>
-
-</div>
-
-
-
-
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -182,6 +116,8 @@
 	<script src="{% static 'assets/vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'assets/js/mainLogin.js' %}"></script>
+
+
 
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
