@@ -1,0 +1,90 @@
+{% extends 'base/base.html' %}
+
+{% block title %}  Registrar estudiantes  {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+
+<div>
+
+    <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Registrar  Nuevo Estudiante <small> </small>
+                        </h1>
+                    </div>
+                </div>
+
+    <form   method="POST"> {% csrf_token %}
+
+
+        {{ formEstudiantes.as_p }}
+
+
+<!--
+        {{ formEstudiantes.fecha_nacimiento }}
+
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Nombre: </label>
+								<input type="text" name="nombre" placeholder="nombre" required="true" >
+							</span>
+        </div>
+
+
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Apellido: </label>
+								<input type="text" name="apellido" placeholder="nombre" required="true" >
+							</span>
+        </div>
+
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>edad: </label>
+
+
+
+
+                                <input type="text" name="edad" placeholder="nombre" required="true" >
+							</span>
+        </div>
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>genero: </label>
+								<input type="text" name="genero" placeholder="nombre" required="true" >
+							</span>
+        </div>
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>email </label>
+								<input type="text" name="email" placeholder="email" required="true" >
+							</span>
+        </div>
+
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Contrasenia: </label>
+								<input type="text" name="contrasenia" placeholder="nombre" required="true" >
+							</span>
+        </div>
+
+        <div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Contrasenia: </label>
+								<input type="text" name="confirmpass" placeholder="nombre" required="true" >
+							</span>
+        </div>
+
+
+-->
+	<button type="submit"> Registrar estudiante </button>
+</form>
+
+</div>
+{% endblock %}
+
+
+
+

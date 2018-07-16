@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block title %}  Registrar estudiantes  {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+
+<div>
+
+    <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">Registrar una nueva categoria de Preguntas <small> </small>
+                        </h1>
+                    </div>
+                </div>
+
+    <form   method="POST"> {% csrf_token %}
+
+        {{ formTipoPregunta.as_p }}
+
+
+	<button type="submit"> Registrar nueva Categoria </button>
+</form>
+
+</div>
+{% endblock %}

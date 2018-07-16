@@ -1,124 +1,121 @@
-<head>
-		<title> Iniciar Session </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-		<link rel="stylesheet" href="{% static 'assets/css/mainLogin.css' %}" />
-		<link rel="stylesheet" href="{% static 'assets/css/util.css' %}" />
 
-		<!--===============================================================================================-->
- </head>
+        <input type="submit" name="q_button" value="Send Question">
 
-<body>
-    <h1 class="title-agile text-center">Core login form</h1>
-    <div class="content-w3ls">
-        <div class="agileits-grid">
-            <div class="content-top-agile">
-                <h2>Login to core</h2>
-            </div>
-            <div class="content-bottom">
-                <form action="#" method="post">
-                    <div class="field_w3ls">
-                        <div class="field-group">
-                            <input name="text1" id="text1" type="text" value="" placeholder="username" required>
-                        </div>
-                        <div class="field-group">
-                            <input id="password-field" type="password" class="form-control" name="password" value="" placeholder="Password">
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                        </div>
-                    </div>
-                    <div class="wthree-field">
-                        <input id="saveForm" name="saveForm" type="submit" value="Login" />
-                    </div>
-                    <ul class="list-login">
-                        <li class="switch-agileits">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                                keep me signed in
-                            </label>
-                        </li>
-                        <li>
-                            <a href="#" class="text-right">forgot password?</a>
-                        </li>
-                        <li class="clearfix"></li>
-                    </ul>
-                </form>
-            </div>
-            <!-- //content bottom -->
-        </div>
-    </div>
-    <div class="copyright text-center">
-        <p>© 2018 Core Login Form. All rights reserved | Design by
-            <a href="http://w3layouts.com">W3layouts</a>
-        </p>
-    </div>
-    <!--//copyright-->
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <!-- script for show password -->
-    <script>
-        $(".toggle-password").click(function () {
+def registrarPreguntas(request):
 
-            $(this).toggleClass("fa-eye fa-eye-slash");
-            var input = $($(this).attr("toggle"));
-            if (input.attr("type") == "password") {
-                input.attr("type", "text");
-            } else {
-                input.attr("type", "password");
-            }
-        });
-    </script>
-    <!-- /script for show password -->
+    context ={}
 
-</body>
+    template_name ='registrarPreguntas.html'
+    #if request.method == 'GET':
+     #   preguntasform = PreguntasForm(request.GET or None)
+      #  formset = RespuestasForm(queryset=Respuesta.objects.none())
+    #el
+    if request.method == 'POST':
+
+        preguntasform = PreguntasForm(request.POST)
+        formset = RespuestasForm(request.POST)
+        success = False
+        if'q_button' in request.POST and preguntasform.is_valid():
+             preguntasform.save()
+             success = True
+
+
+        print('forms ')
+        if 'q_button' in request.POST and formset.is_valid():
+
+            formset.save()
+            print('save pregunta')
+            success = True
+        if success:
+            return HttpResponse(reverse('success'))
+    else:
+        preguntasform =PreguntasForm(request.POST)
+        formset =RespuestasForm(request.POST)
+    context['preguntasform']=preguntasform
+    context['respuestasform']=formset
+    return render(request,'registrarPreguntas.html',context)
+
+
+def success(request):
+    return render(request, 'success.html', {})
+
+    #QuestionFormSet = formset_factory(Respuesta, extra=3)
+"""
+def registrarPreguntas(request):
+
+    if request.method == 'POST':
+
+        form = PreguntasForm(request.POST)
+        if form.is_valid() :
+
+
+            form.save()
+        return HttpResponseRedirect(reverse('registro:listarProfesor'))
+    else:
+        form = PreguntasForm()
+    return render(request, 'registrarPreguntas.html', {'formPreguntas': PreguntasForm})
+"""""
 
 
 
 
+def registrarPreguntas(request):
 
-<!--
-    <form method='POST'> {% csrf_token %}
-      {{ form }}
-      <button type='submit' class='btn btn-default'>Submit</button>
-    </form>
+    context ={}
 
+    #template_name ='registrarPreguntas.html'
+    #if request.method == 'GET':
+     #   preguntasform = PreguntasForm(request.GET or None)
+      #  formset = RespuestasForm(queryset=Respuesta.objects.none())
+    #el
+    if request.method == 'POST':
 
-<!-- Footer -->
-			<footer id="footer">
-				<div class="container"  >
-
-					<header class="align-center">
-						<p class="special"> jk</p>
-					</header>
-
-		&copy; Untitled. All rights reserved.
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src=" {% static 'assets/js/jquery.min.js' %}"></script>
-			<script src=" {% static 'assets/js/jquery.scrollex.min.js' %}"></script>
-			<script src=" {% static 'assets/js/skel.min.js' %}"></script>
-			<script src=" {% static 'assets/js/util.js' %}"></script>
-			<script src=" {% static 'assets/js/main.js' %}"></script>
-
-<!--===============================================================================================-->
-
-	<script src="{% static 'assets/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'assets/vendor/animsition/js/animsition.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'assets/vendor/bootstrap/js/popper.js' %}"></script>
-	<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'assets/vendor/daterangepicker/moment.min.js' %}"></script>
-	<script src="{% static 'assets/vendor/daterangepicker/daterangepicker.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'assets/vendor/countdowntime/countdowntime.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'assets/js/mainLogin.js' %}"></script>
+        preguntasform = PreguntasForm(request.POST)
+        formset = RespuestasForm(request.POST)
+        success = False
+        if'q_button' in request.POST and preguntasform.is_valid():
+             preguntasform.save()
+             success = True
 
 
-</html>
+        print('forms ')
+        if 'q_button' in request.POST and formset.is_valid():
+
+            formset.save()
+            print('save pregunta')
+            success = True
+        if success:
+            return HttpResponse(reverse('success'))
+    else:
+        preguntasform =PreguntasForm(request.POST)
+        formset =RespuestasForm(request.POST)
+
+    context['preguntasform']=preguntasform
+    context['respuestasform']=formset
+    return render(request,'registrarPreguntas.html',context)
+**********************************
+
+ """
+        fields = [
+            'pregunta',
+            'codigo_tip',
+            'codigo_eval'
+        ]
+
+        labels = {
+            'pregunta':'pregunta',
+            'codigo_tip':'tipo de pregunta',
+            'codigo_eval':'evaluacion',
+        }
+
+        widgets = {
+            'pregunta': forms.TextInput(attrs={'class':'form-control'}),
+            'codigo_tip': forms.Select(attrs={'class': 'form-control', }),
+            'codigo_eval': forms.Select(attrs={'class': 'form-control', })
+
+        }
+
+
+RespuestasFormSet = modelformset_factory(Respuesta,
+                                         fields=[
+"""

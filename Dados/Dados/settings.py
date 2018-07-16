@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.registro',
     'users',
+    'rest_framework',
 
 )
 
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'Dados.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test2',
+        'NAME': 'test1',
         'USER': 'admin',
         'PASSWORD': 'admin',
         'HOST': 'localhost',

@@ -20,8 +20,10 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', include('users.urls', namespace= 'home')),# inicio
-    path('users/', include('users.urls', namespace='users')),#registro usuarios
+    path('home/', include('users.urls', namespace= 'home')),# inicio pagina principal de bienvenida regisstro de usuarios y inicio de session
+    #path(r'^api-auth/', include('rest_framework.urls')),
+
+    #path('users/', include('users.urls', namespace='users')),#registro usuarios
 
     path('registro/', include('apps.registro.urls', namespace="registro")),
 
