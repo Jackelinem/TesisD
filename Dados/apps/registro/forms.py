@@ -1,35 +1,27 @@
 from django import forms
-from django.forms import formset_factory, inlineformset_factory, ModelForm
+from django.forms import inlineformset_factory, ModelForm
 from .models import (
     Profesor, Estudiante, Curso,
     AnioLectivo,TipoPregunta,Evalucion,
-    Pregunta,Respuesta)
+    )
 
-from django.forms import (formset_factory, modelformset_factory)
-from .models import Profile, FamilyMember
-
+from .models import Preguntas, Respuestas
 
 
-class ProfileForm(ModelForm):
+#Formulario de las preguntas
+class PreguntasForm(ModelForm):
     class Meta:
-        model = Profile
+        model = Preguntas
         exclude = ()
 
-
-class FamilyMemberForm(ModelForm):
+#Formulario de las respuestas
+class RespuestasForm(ModelForm):
     class Meta:
-        model = FamilyMember
+        model = Respuestas
         exclude = ()
 
-
-FamilyMemberFormSet = inlineformset_factory(Profile, FamilyMember,
-                                            form=FamilyMemberForm, extra=1)
-
-
-
-
-
-
+RespuestasFormSet = inlineformset_factory(Preguntas, Respuestas,
+                                            form=RespuestasForm, extra=1)
 
 #Formulario del profesor
 class ProfesorForm(forms.ModelForm):
@@ -162,71 +154,3 @@ class EvaluacionForm(forms.ModelForm):
         model = Evalucion
         fields = "__all__"
 
-
-#Form
-class PreguntasForm(ModelForm):
-    class Meta:
-        model = Pregunta
-        exclude = ()
-
-#Formulario de las respuestas
-class RespuestasForm(ModelForm):
-    class Meta:
-      model = Respuesta
-      exclude = ()
-
-RespuestasFormset = inlineformset_factory(Pregunta, Respuesta,
-                                          form=RespuestasForm,
-                                          extra=1)
-
-
-class BookModelForm(forms.ModelForm):
-
-    class Meta:
-        model = Pregunta
-        fields = ['pregunta','codigo_eval','codigo_tip']
-        labels = {
-            'pregunta': 'pregunta',
-            'codigo_eval':'codigo_eval',
-            'codigo_tip':'codigo_tip',
-        }
-        widgets = {
-            'pregunta': forms.TextInput(attrs={ 'class': 'form-control','placeholder': 'la pregunta here'}),
-            'codigo_eval':forms.Select(),
-            'codigo_tip':forms.Select(),
-        }
-
-AuthorFormset = modelformset_factory(
-    Respuesta,
-    fields=('respuesta','validacion',),
-    extra=1,
-    widgets={
-        'respuesta': forms.TextInput(attrs={'class': 'form-control',
-                                            'placeholder': 'respuesta'}),
-        'validacion': forms.Select(),
-    }
-)
-
-
-"""""
-      fields = [
-          'codigo_pre',
-          'respuesta',
-          'validacion',
-
-      ]
-
-      labels = {
-          'codigo_pre': 'Pregunta',
-          'respuesta': 'respuesta',
-          'validacion': 'validacion',
-
-      }
-
-      widgets = {
-          'codigo_pre': forms.Select(),
-          'respuesta': forms.TextInput(attrs={'class': 'form-control'}),
-          'validacion': forms.CheckboxSelectMultiple(),
-
-      }
-"""""

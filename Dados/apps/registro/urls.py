@@ -1,8 +1,7 @@
 from django.urls import path
 from .views import home, registrarProfesor, listarProfesores,\
     registrarEstudiantes,registrarCursos, registrarAnioLectivo, \
-    registrarEvaluacion, registrarTipoPregunta, registrarPreguntas,\
-    registrarRespuestas,create_book_normal, ProfesorCreate, PreguntasyRespuestas, create_book_with_authors
+    registrarEvaluacion, registrarTipoPregunta, ProfesorCreate
 #from .users.views import  RegisterView, login
  #   ProfesoresList
 
@@ -21,11 +20,8 @@ urlpatterns = [
     path('anioLectivo/',registrarAnioLectivo, name='anioLectivo'), #registrar nuevo anio lectivo
     path('tipoP/', registrarTipoPregunta, name='tipoP'),  # registrar nuevo anio lectivo
     path('evaluacion/', registrarEvaluacion, name='evaluacion'),  # registrar nueva evaluacion
-    path('preguntas/', registrarPreguntas, name='preguntas'),  # registrar nuevas preguntas
-    path('respuestas/', registrarRespuestas, name='respuestas'),  # registrar nuevas preguntas
-
-   # path('respuesta/', views.PreguntasyRespuestas.as_view(), name='questionsAnswers'),
-    #url('preguntas-update/(?P<pk>[0-9]+)/$', views.PreguntasUpdate.as_view(), name='preguntas-update'),
+    #path('preguntas/', registrarPreguntas, name='preguntas'),  # registrar nuevas preguntas
+    #path('respuestas/', registrarRespuestas, name='respuestas'),  # registrar nuevas preguntas
 
 
     path('listar/', listarProfesores, name='listarProfesor'),
@@ -33,11 +29,12 @@ urlpatterns = [
     #path('createProfesor/', ProfesorCreate.as_view(), name='createProfesor'),
     #path('updateProfesor/<int:id>/', ProfesorUpdate.as_view(), name='updateProfesor'),
 
-   # path('create', create_book_with_authors, name='create'),
 
-    url(r'^$', views.ProfileList.as_view(), name='profile-list'),
-    path('profile/add', views.ProfileFamilyMemberCreate.as_view(), name='profile-add'),
-    url(r'profile/(?P<pk>[0-9]+)/$', views.ProfileFamilyMemberUpdate.as_view(), name='profile-update'),
-    url(r'profile/(?P<pk>[0-9]+)/delete/$', views.ProfileDelete.as_view(), name='profile-delete'),
+    #Urls para el crud de las preguntas y respuestas
+    url(r'^$', views.PreguntasList.as_view(), name='preguntas-list'),
+    path('preguntas/add', views.RespuestasCreate.as_view(), name='preguntas-add'),
+    url(r'preguntas/(?P<pk>[0-9]+)/$', views.RespuestasUpdate.as_view(), name='preguntas-update'),
+    url(r'preguntas/(?P<pk>[0-9]+)/delete/$', views.PreguntasDelete.as_view(), name='preguntas-delete'),
+
 
 ]

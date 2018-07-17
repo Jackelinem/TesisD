@@ -3,6 +3,7 @@
 
 {% block title %}{% endblock %}
 {% block content %}
+
     <h2>Preguntas</h2>
     <hr>
     <div class="col-md-4">
@@ -10,9 +11,9 @@
             {{ form.as_p }}
 
             <table class="table">
-                {{ familymembers.management_form }}
+                {{ answers.management_form }}
 
-                {% for form in familymembers.forms %}
+                {% for form in answers.forms %}
                     {% if forloop.first %}
                         <thead>
                         <tr>
@@ -38,7 +39,7 @@
                     </tr>
                 {% endfor %}
             </table>
-            <input type="submit" value="Save"/> <a href="{% url 'registro:profile-list' %}">back to the list</a>
+            <input type="submit" value="Save"/> <a href="{% url 'registro:preguntas-list' %}">ver lista de preguntas</a>
         </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -47,7 +48,7 @@
         $('.formset_row').formset({
             addText: 'add respuesta',
             deleteText: 'remove',
-            prefix: 'familymember_set'
+            prefix: 'respuestas_set'
         });
     </script>
 {% endblock %}

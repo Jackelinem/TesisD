@@ -6,9 +6,9 @@
     <div>
         <ul>
             {% for profile in object_list %}
-                <li>{{ profile.question }} {{ profile.validacion}} | <a
-                        href="{% url 'registro:profile-update' profile.pk %}">editar</a>
-                    <a href="{% url 'registro:profile-delete' profile.pk %}">eleminar</a>
+                <li>{{ profile.question }} {{ preguntas.validacion}} | <a
+                        href="{% url 'registro:preguntas-update' profile.pk %}">editar</a>
+                    <a href="{% url 'registro:preguntas-delete' profile.pk %}">eleminar</a>
                 </li>
             {% empty %}
                 <li>No hay preguntas.</li>
@@ -16,7 +16,7 @@
 
         </ul>
         <p>
-            <a href="{% url 'registro:profile-add' %}">agregar preguntas</a>
+            <a href="{% url 'registro:preguntas-add' %}">agregar preguntas</a>
         </p>
     </div>
 {% endblock %}
